@@ -63,7 +63,7 @@ app.whenReady().then(() => {
 
   ipcMain.on('file-selected', (event, filePath) => {
     console.log('File selected:', filePath);
-    executeCommand(`python ${join(__dirname, '../../resources/offline_video.py')} ${filePath}`)
+    executeCommand(`python ${join(__dirname, '../../resources/offline_video.py')}`)
     // Here you can handle the file path as needed
     // For example, you can send it to the renderer process or process it in some way
     event.sender.send('file-selected', { message: filePath});

@@ -153,4 +153,6 @@ def translate_sign_language_video(video_path):
 
 # Example usage
 if __name__ == "__main__":
-   translate_sign_language_video(sys.argv[1])
+   path = r"C:\Users\MSI\Desktop\70212.mp4"
+
+   translate_sign_language_video(path)
