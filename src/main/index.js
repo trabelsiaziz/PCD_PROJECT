@@ -52,6 +52,7 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+
   ipcMain.on('start-local-server', (event) => {
     console.log('Starting local server...');
     console.log(__dirname)
@@ -59,6 +60,14 @@ app.whenReady().then(() => {
     console.log('Local server started');
     event.sender.send('local-server-started',{message: 'Server started successfully',port:port});
   })
+
+  ipcMain.on('file-selected', (event, filePath) => {
+    console.log('File selected:', filePath);
+    executeCommand(`python ${join(__dirname, '../../resources/offline_video.py')} ${filePath}`)
+    // Here you can handle the file path as needed
+    // For example, you can send it to the renderer process or process it in some way
+    event.sender.send('file-selected', { message: filePath});
+  });
 
   createWindow()
 

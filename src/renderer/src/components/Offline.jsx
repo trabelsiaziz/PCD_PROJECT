@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Play, Square, Loader, Wifi } from 'lucide-react';
-
+import VideoInput from './ui/input';
 const Offline = () => {
   const { isServerRunning, setServerRunning } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -77,6 +77,8 @@ const Offline = () => {
               <Wifi className="icon" />
               Start Online Server
             </button>
+            {/* <input type= className="btn btn-warning" name='videoFile' value='upload a video'/> */}
+            <VideoInput />
           </div>
         ) : (
           <button
